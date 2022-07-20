@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="src/css/style.css">
+    <title>Mini CSS Playground</title>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div class="lbl-menu">
+          <label class="lbl-button" for="radio1">html <img src="src/icons/htmlico.svg" alt="html icon"></label>
+          <label class="lbl-button" for="radio2">css <img src="src/icons/cssico.svg" alt="html icon"></label>
+          <label class="lbl-button" for="radio3">js <img src="src/icons/jsico.svg" alt="html icon"></label>
+          <label class="lbl-button" for="radio4">preview</label>
+        </div>
+        <div class="options">
+          <button id="config_btn"><img src="src/icons/config.svg" alt="config icon"></button>
+        </div>
+      </header>
+      <div class="content">
+        <input type="radio" name="radio" id="radio1" checked>
+        <div class="tab tab1">
+          <textarea  id="htmleditor"></textarea>
+        </div>
+        <input type="radio" name="radio" id="radio2">
+        <div class="tab tab2">
+          <textarea  id="csseditor"></textarea>
+        </div>
+        <input type="radio" name="radio" id="radio3">
+        <div class="tab tab3">
+          <textarea  id="javascripteditor"></textarea>
+        </div>
+        <input type="radio" name="radio" id="radio4">
+        <div class="tab tab4">
+          <iframe srcdoc="" frameborder="0" id="live-preview"></iframe>
+        </div>
+      </div>
+      <div class="modal-options">
+        <div class="modal-options_bg">
+          <div class="modal-options-content">
+            <h2>Theme</h2>
+            <select name="options" id="options">
+              <option value="dracula">Dracula</option>
+              <option value="github">GitHub</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="src/js/main.js"></script>
+  </body>
+</html>

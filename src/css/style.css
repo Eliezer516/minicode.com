@@ -1,0 +1,100 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: system-ui;
+}
+
+#live-preview {
+  width: 100%;
+  height: 100%;
+  background: white;
+}
+
+.container {
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+  height: 100vh;
+}
+
+header {
+  background: #234;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.lbl-menu {
+  background: #234;
+}
+
+.lbl-menu label {
+  display: inline-flex;
+  padding: 20px;
+  color: white;
+  cursor: pointer;
+  transition: background 400ms ease;
+}
+
+.lbl-menu .lbl-button.active {
+  background: #28435d;
+}
+
+.lbl-menu label:hover {
+  background: #28435d;
+}
+
+.content {
+  position: relative;
+  width: 100%;
+  height: calc(100% - 70px);
+}
+
+.content .tab {
+  width: 100%;
+  height: calc(100vh - 70px);
+  position: absolute;
+  visibility: hidden;
+  opacity: 0;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+#radio1:checked ~ .tab1,
+#radio2:checked ~ .tab2,
+#radio3:checked ~ .tab3,
+#radio4:checked ~ .tab4 {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* MODAL */
+
+.modal-options_bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0,0,0,0.5);
+  display: grid;
+  place-content: center;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.modal-options_bg.modal-options_bg-active {
+  visibility: visible;
+  opacity: 1;
+}
+
+.modal-options-content {
+  width: 300px;
+  height: 300px;
+  border-radius: 8px;
+  padding: 20px;
+  background: white;
+}
