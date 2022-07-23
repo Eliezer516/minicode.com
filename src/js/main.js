@@ -1,5 +1,6 @@
 import { htmleditor, csseditor, jseditor } from './editors.js'
 import { $, $$ } from './lib/$.js'
+import './fontsize.js'
 
 window.addEventListener('DOMContentLoaded', function () {
 
@@ -14,6 +15,10 @@ window.addEventListener('DOMContentLoaded', function () {
 
   $('#config_btn').addEventListener('click', function () {
     $('.modal-options_bg').classList.add('modal-options_bg-active')
+  })
+
+  $("#close-modal-btn").addEventListener("click", function () {
+    $('.modal-options_bg').classList.remove('modal-options_bg-active')
   })
 
   function createHTML () {

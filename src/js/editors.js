@@ -19,20 +19,22 @@ const editorOptions = {
   lineNumbers: true,
   autoCloseBrackets: true,
   autoCloseTags: true,
-  scrollbarStyle: 'simple'
+  scrollbarStyle: 'simple',
+  cursorHeight: 0.85,
 }
 
-const htmleditor = CodeMirror.fromTextArea(document.getElementById("htmleditor"), {
+const htmleditor = CodeMirror.fromTextArea(document.getElementById('htmleditor'), {
   mode: 'xml',
+  value: '<h1>lorem</h1>',
   ...editorOptions
 })
 
-const csseditor = CodeMirror.fromTextArea(document.getElementById("csseditor"), {
+const csseditor = CodeMirror.fromTextArea(document.getElementById('csseditor'), {
   mode: 'css',
   ...editorOptions
 })
 
-const jseditor = CodeMirror.fromTextArea(document.getElementById("javascripteditor"), {
+const jseditor = CodeMirror.fromTextArea(document.getElementById('javascripteditor'), {
   mode: 'javascript',
   ...editorOptions
 })

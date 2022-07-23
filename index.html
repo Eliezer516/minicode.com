@@ -18,6 +18,7 @@
         </div>
         <div class="options">
           <button id="config_btn"><img src="src/icons/config.svg" alt="config icon"></button>
+          <button id="share_btn"><img src="src/icons/share.svg" alt="share icon"></button>
         </div>
       </header>
       <div class="content">
@@ -41,11 +42,13 @@
       <div class="modal-options">
         <div class="modal-options_bg">
           <div class="modal-options-content">
-            <h2>Theme</h2>
-            <select name="options" id="options">
-              <option value="dracula">Dracula</option>
-              <option value="github">GitHub</option>
-            </select>
+            <button id="close-modal-btn"><img src="src/icons/close.svg" alt="Close icon"></button>
+            <div class="option-group">
+              <h3>Font Size</h3>
+              <button id="increase-fontsize">+</button>
+              <button id="decrease-fontsize">-</button>
+              <input type="number" id="custom-fontsize">
+            </div>
           </div>
         </div>
       </div>
