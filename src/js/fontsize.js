@@ -1,34 +1,44 @@
-import { $ } from './lib/$.js'
+import { $, $$ } from './lib/$.js'
 
 // import { htmleditor } from './editors.js'
 const codeMirrorElement = window.getComputedStyle($('.CodeMirror'))
+const editors = $$('.CodeMirror')
 let currentFontSize = parseInt(codeMirrorElement.getPropertyValue('font-size').replace('px', ''))
 
 function increaseFontSize () {
   currentFontSize = currentFontSize + 1
-  $('.CodeMirror').style.fontSize = `${currentFontSize}px`
-  $('#custom-fontsize').value = currentFontSize
+  editors.forEach( editor => {
+    editor.style.fontSize = `${currentFontSize}px`
+  })
+  $('#custom-fontsize').value = currentFontSize  
+  
+  // console.log(editors)
 }
 
 function decreaseFontSize () {
   currentFontSize = currentFontSize - 1
-  $('.CodeMirror').style.fontSize = `${currentFontSize}px`
+  editors.forEach( editor => {
+    editor.style.fontSize = `${currentFontSize}px`
+  })
   $('#custom-fontsize').value = currentFontSize
 }
 
 function customFontSize () {
   let fontSize = parseInt($('#custom-fontsize').value)
 
-  if (isNaN(fontSize) || fontSize < 5) {
+  if (isNaN(fontSize)) {
     fontSize = 16
   }
+  
   currentFontSize = fontSize
-  $('.CodeMirror').style.fontSize = `${currentFontSize}px`
+  
+  editors.forEach( editor => {
+    $('.CodeMirror').style.fontSize = `${currentFontSize}px`
+  })
 }
 
 $('#increase-fontsize').addEventListener('click', function () {
   increaseFontSize()
-  console.log()
 })
 
 $('#decrease-fontsize').addEventListener('click', function () {
