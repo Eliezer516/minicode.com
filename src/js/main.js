@@ -4,23 +4,6 @@ import './fontsize.js'
 
 window.addEventListener('DOMContentLoaded', function () {
 
-  function actibeLblButton () {
-    $$('.lbl-button').forEach((item) => item.classList.remove('active'))
-    this.classList.add('active')
-  }
-
-  $$('.lbl-button').forEach((button) => {
-    button.addEventListener('click', actibeLblButton)
-  })
-
-  $('#config_btn').addEventListener('click', function () {
-    $('.modal-options_bg').classList.add('modal-options_bg-active')
-  })
-
-  $("#close-modal-btn").addEventListener("click", function () {
-    $('.modal-options_bg').classList.remove('modal-options_bg-active')
-  })
-
   function createHTML () {
     const html = htmleditor.getValue()
     const css = csseditor.getValue()

@@ -4,23 +4,26 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="src/css/picnic.css">
     <link rel="stylesheet" href="src/css/style.css">
     <title>Mini CSS Playground</title>
   </head>
   <body>
     <div class="container">
-      <header>
-        <div class="lbl-menu">
-          <label class="lbl-button" for="radio1">html <img src="src/icons/htmlico.svg" alt="html icon"></label>
-          <label class="lbl-button" for="radio2">css <img src="src/icons/cssico.svg" alt="html icon"></label>
-          <label class="lbl-button" for="radio3">js <img src="src/icons/jsico.svg" alt="html icon"></label>
-          <label class="lbl-button" for="radio4">preview</label>
+      <nav class="demo" style="position: relative;">
+        <!-- responsive-->
+        <input id="bmenub" type="checkbox" class="show">
+        <label for="bmenub" class="burger pseudo button">&#8801;</label>
+
+        <div class="menu">
+          <label class="lbl-button button" for="radio1"><span>Html</span></label>
+          <label class="lbl-button button" for="radio2"><span>Css</span></label>
+          <label class="lbl-button button" for="radio3"><span>Js</span> </label>
+          <label class="lbl-button button" for="radio4"><span>Preview</span></label>
+          <label for="modal_config" class="lbl-button button"></label>
+          <label id="share_btn" class="lbl-button button"></label>
         </div>
-        <div class="options">
-          <button id="config_btn"><img src="src/icons/config.svg" alt="config icon"></button>
-          <button id="share_btn"><img src="src/icons/share.svg" alt="share icon"></button>
-        </div>
-      </header>
+      </nav>
       <div class="content">
         <input type="radio" name="radio" id="radio1" checked>
         <div class="tab tab1">
@@ -39,18 +42,21 @@
           <iframe srcdoc="" frameborder="0" id="live-preview"></iframe>
         </div>
       </div>
-      <div class="modal-options">
-        <div class="modal-options_bg">
-          <div class="modal-options-content">
-            <button id="close-modal-btn"><img src="src/icons/close.svg" alt="Close icon"></button>
-            <div class="option-group">
-              <h3>Font Size</h3>
-              <button id="increase-fontsize">+</button>
-              <button id="decrease-fontsize">-</button>
-              <input type="number" id="custom-fontsize">
-            </div>
-          </div>
-        </div>
+      <div class="modal">
+        <input id="modal_config" type="checkbox" />
+        <label for="modal_config" class="overlay"></label>
+        <article class="card">
+          <header>
+            <h3>Editor options</h3>
+            <label for="modal_config" class="close">&times;</label>
+          </header>
+          <section class="content">
+            <h3>Font Size</h3>
+            <button id="increase-fontsize">+</button>
+            <input type="number" id="custom-fontsize">
+            <button id="decrease-fontsize">-</button>
+          </section>
+        </article>
       </div>
     </div>
     <script type="module" src="src/js/main.js"></script>
