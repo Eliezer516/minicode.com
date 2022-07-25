@@ -90,7 +90,6 @@ fieldset {
   .menu {
     display: initial;
   }
-<<<<<<< HEAD
 }
 
 input::-webkit-outer-spin-button,
@@ -103,6 +102,3 @@ input::-webkit-inner-spin-button {
 input[type=number] {
   -moz-appearance: textfield;
 }
-=======
-}  
->>>>>>> 5b4317399bc0d8e5de919d7504bef453bba6be2b
