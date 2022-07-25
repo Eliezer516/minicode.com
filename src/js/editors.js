@@ -1,6 +1,9 @@
 import CodeMirror from 'codemirror/lib/codemirror.js'
 import 'codemirror/lib/codemirror.css'
 
+// THEMES
+import './lib/themes.js'
+
 // MODES
 import 'codemirror/mode/xml/xml.js'
 import 'codemirror/mode/css/css.js'
@@ -12,29 +15,24 @@ import 'codemirror/addon/edit/closetag.js'
 import 'codemirror/addon/scroll/simplescrollbars.js'
 import 'codemirror/addon/scroll/simplescrollbars.css'
 
-// THEMES
-import 'codemirror/theme/dracula.css'
-
 const editorOptions = {
   lineNumbers: true,
   autoCloseBrackets: true,
   autoCloseTags: true,
   scrollbarStyle: 'simple',
-  cursorHeight: 0.85,
 }
 
-const htmleditor = CodeMirror.fromTextArea(document.getElementById('htmleditor'), {
+const htmleditor = CodeMirror(document.getElementById('htmleditor'), {
   mode: 'xml',
-  value: '<h1>lorem</h1>',
   ...editorOptions
 })
 
-const csseditor = CodeMirror.fromTextArea(document.getElementById('csseditor'), {
+const csseditor = CodeMirror(document.getElementById('csseditor'), {
   mode: 'css',
   ...editorOptions
 })
 
-const jseditor = CodeMirror.fromTextArea(document.getElementById('javascripteditor'), {
+const jseditor = CodeMirror(document.getElementById('javascripteditor'), {
   mode: 'javascript',
   ...editorOptions
 })

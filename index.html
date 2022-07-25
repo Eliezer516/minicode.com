@@ -4,40 +4,54 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="src/css/picnic.css">
-    <link rel="stylesheet" href="src/css/style.css">
-    <title>Mini CSS Playground</title>
+    <link rel="stylesheet" href="src/css/picnic.css" />
+    <link rel="stylesheet" href="src/css/style.css" />
+    <title>Minicode | Html Css Js live playground</title>
   </head>
   <body>
     <div class="container">
-      <nav class="demo" style="position: relative;">
+      <nav class="demo" style="position: relative">
+        <div class="brand">
+        </div>
         <!-- responsive-->
-        <input id="bmenub" type="checkbox" class="show">
-        <label for="bmenub" class="burger pseudo button">&#8801;</label>
+        <input id="bmenub" type="checkbox" class="show" />
+        <label for="bmenub" class="burger pseudo lbl-button button"><img src="src/icons/menu.svg" alt="Menu icon" /></label>
 
         <div class="menu">
-          <label class="lbl-button button" for="radio1"><span>Html</span></label>
-          <label class="lbl-button button" for="radio2"><span>Css</span></label>
-          <label class="lbl-button button" for="radio3"><span>Js</span> </label>
-          <label class="lbl-button button" for="radio4"><span>Preview</span></label>
-          <label for="modal_config" class="lbl-button button"></label>
-          <label id="share_btn" class="lbl-button button"></label>
+          <div class="tabs">
+            <label class="lbl-button button" for="radio1"
+              ><span>Html</span><img src="src/icons/htmlico.svg" alt="Html icon" /></label
+            >
+            <label class="lbl-button button" for="radio2"><span>Css</span><img src="src/icons/cssico.svg" alt="Css icon" /></label>
+            <label class="lbl-button button" for="radio3"><span>Js</span><img src="src/icons/jsico.svg" alt="javascript icon" /></label>
+            <label class="lbl-button button" for="radio4"
+              ><span>Preview</span><img src="src/icons/preview.svg" alt="Preview icon" /></label
+            >          
+          </div>
+          <div class="options">
+            <label for="modal_config" class="lbl-button button" id="config-btn"><img src="src/icons/config.svg" alt="Config icon" /></label>
+            <!-- <label id="share_btn" class="lbl-button button"></label> -->
+            <a href="https://github.com/Eliezer516/minicode.com" class="lbl-button button" target="_blank"><img src="src/icons/github.svg" alt="Config icon" /></a>
+          </div>
         </div>
       </nav>
       <div class="content">
-        <input type="radio" name="radio" id="radio1" checked>
+        <input type="radio" name="radio" id="radio1" checked />
         <div class="tab tab1">
-          <textarea  id="htmleditor"></textarea>
+          <!-- <textarea id="htmleditor"></textarea> -->
+          <div id="htmleditor"></div>
         </div>
-        <input type="radio" name="radio" id="radio2">
+        <input type="radio" name="radio" id="radio2" />
         <div class="tab tab2">
-          <textarea  id="csseditor"></textarea>
+         <!-- <textarea id=""></textarea> -->
+          <div id="csseditor"></div>
         </div>
-        <input type="radio" name="radio" id="radio3">
+        <input type="radio" name="radio" id="radio3" />
         <div class="tab tab3">
-          <textarea  id="javascripteditor"></textarea>
+         <!-- <textarea id=""></textarea> -->
+          <div id="javascripteditor"></div>
         </div>
-        <input type="radio" name="radio" id="radio4">
+        <input type="radio" name="radio" id="radio4" />
         <div class="tab tab4">
           <iframe srcdoc="" frameborder="0" id="live-preview"></iframe>
         </div>
@@ -50,12 +64,153 @@
             <h3>Editor options</h3>
             <label for="modal_config" class="close">&times;</label>
           </header>
-          <section class="content">
+          <footer>
             <h3>Font Size</h3>
-            <button id="increase-fontsize">+</button>
-            <input type="number" id="custom-fontsize">
-            <button id="decrease-fontsize">-</button>
-          </section>
+            <fieldset>
+              <button id="decrease-fontsize" class="lbl-button button"><img src="src/icons/minus.svg" alt="Minus icon" /></button>
+              <input type="number" id="custom-fontsize" class="half" />
+              <button id="increase-fontsize" class="lbl-button"><img src="src/icons/plus.svg" alt="Plus icon" /></button>
+              <button id="reset-fontsize" class="lbl-button"><img src="src/icons/reset.svg" alt="Reset icon" /></button>
+            </fieldset>
+            <h3>Theme</h3>
+            <fieldset>
+              <select id="theme">
+                <option value="3024-day">3024-day</option>
+
+                <option value="3024-night">3024-night</option>
+
+                <option value="abbott">Abbott</option>
+
+                <option value="abcdef">Abcdef</option>
+
+                <option value="ambiance-mobile">Ambiance-mobile</option>
+
+                <option value="ambiance">Ambiance</option>
+
+                <option value="ayu-dark">Ayu-dark</option>
+
+                <option value="ayu-mirage">Ayu-mirage</option>
+
+                <option value="base16-dark">Base16-dark</option>
+
+                <option value="base16-light">Base16-light</option>
+
+                <option value="bespin">Bespin</option>
+
+                <option value="blackboard">Blackboard</option>
+
+                <option value="cobalt">Cobalt</option>
+
+                <option value="colorforth">Colorforth</option>
+
+                <option value="darcula">Darcula</option>
+
+                <option value="dracula">Dracula</option>
+
+                <option value="duotone-dark">Duotone-dark</option>
+
+                <option value="duotone-light">Duotone-light</option>
+
+                <option value="eclipse">Eclipse</option>
+
+                <option value="elegant">Elegant</option>
+
+                <option value="erlang-dark">Erlang-dark</option>
+
+                <option value="gruvbox-dark">Gruvbox-dark</option>
+
+                <option value="hopscotch">Hopscotch</option>
+
+                <option value="icecoder">Icecoder</option>
+
+                <option value="idea">Idea</option>
+
+                <option value="isotope">Isotope</option>
+
+                <option value="juejin">Juejin</option>
+
+                <option value="lesser-dark">Lesser-dark</option>
+
+                <option value="liquibyte">Liquibyte</option>
+
+                <option value="lucario">Lucario</option>
+
+                <option value="material-darker">Material-darker</option>
+
+                <option value="material-ocean">Material-ocean</option>
+
+                <option value="material-palenight">Material-palenight</option>
+
+                <option value="material">Material</option>
+
+                <option value="mbo">Mbo</option>
+
+                <option value="mdn-like">Mdn-like</option>
+
+                <option value="midnight">Midnight</option>
+
+                <option value="monokai">Monokai</option>
+
+                <option value="moxer">Moxer</option>
+
+                <option value="neat">Neat</option>
+
+                <option value="neo">Neo</option>
+
+                <option value="night">Night</option>
+
+                <option value="nord">Nord</option>
+
+                <option value="oceanic-next">Oceanic-next</option>
+
+                <option value="panda-syntax">Panda-syntax</option>
+
+                <option value="paraiso-dark">Paraiso-dark</option>
+
+                <option value="paraiso-light">Paraiso-light</option>
+
+                <option value="pastel-on-dark">Pastel-on-dark</option>
+
+                <option value="railscasts">Railscasts</option>
+
+                <option value="rubyblue">Rubyblue</option>
+
+                <option value="seti">Seti</option>
+
+                <option value="shadowfox">Shadowfox</option>
+
+                <option value="solarized">Solarized</option>
+
+                <option value="ssms">Ssms</option>
+
+                <option value="the-matrix">The-matrix</option>
+
+                <option value="tomorrow-night-bright">
+                  Tomorrow-night-bright
+                </option>
+
+                <option value="tomorrow-night-eighties">
+                  Tomorrow-night-eighties
+                </option>
+
+                <option value="ttcn">Ttcn</option>
+
+                <option value="twilight">Twilight</option>
+
+                <option value="vibrant-ink">Vibrant-ink</option>
+
+                <option value="xq-dark">Xq-dark</option>
+
+                <option value="xq-light">Xq-light</option>
+
+                <option value="yeti">Yeti</option>
+
+                <option value="yonce">Yonce</option>
+
+                <option value="zenburn">Zenburn</option>
+              </select>
+            </fieldset>
+          </footer>
         </article>
       </div>
     </div>
