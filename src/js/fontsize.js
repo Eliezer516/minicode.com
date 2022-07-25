@@ -30,6 +30,7 @@ function customFontSize () {
   }
   currentFontSize = fontSize
   editors.forEach((editor) => {
+<<<<<<< HEAD
     editor.style.fontSize = `${currentFontSize}px`
   })
 }
@@ -38,6 +39,9 @@ function resetFontSize () {
   currentFontSize = 16
   editors.forEach((editor) => {
     editor.style.fontSize = `${currentFontSize}px`
+=======
+    $('.CodeMirror').style.fontSize = `${currentFontSize}px`
+>>>>>>> 5b4317399bc0d8e5de919d7504bef453bba6be2b
   })
   
   $('#custom-fontsize').value = currentFontSize
