@@ -5,19 +5,19 @@ const codeMirrorElement = window.getComputedStyle($('.CodeMirror'))
 const editors = $$('.CodeMirror')
 let currentFontSize = parseInt(codeMirrorElement.getPropertyValue('font-size').replace('px', ''))
 
+$('#custom-fontsize').value = currentFontSize
+
 function increaseFontSize () {
   currentFontSize = currentFontSize + 1
-  editors.forEach( editor => {
+  editors.forEach((editor) => {
     editor.style.fontSize = `${currentFontSize}px`
   })
-  $('#custom-fontsize').value = currentFontSize  
-  
-  // console.log(editors)
+  $('#custom-fontsize').value = currentFontSize
 }
 
 function decreaseFontSize () {
   currentFontSize = currentFontSize - 1
-  editors.forEach( editor => {
+  editors.forEach((editor) => {
     editor.style.fontSize = `${currentFontSize}px`
   })
   $('#custom-fontsize').value = currentFontSize
@@ -25,14 +25,11 @@ function decreaseFontSize () {
 
 function customFontSize () {
   let fontSize = parseInt($('#custom-fontsize').value)
-
   if (isNaN(fontSize)) {
     fontSize = 16
   }
-  
   currentFontSize = fontSize
-  
-  editors.forEach( editor => {
+  editors.forEach((editor) => {
     $('.CodeMirror').style.fontSize = `${currentFontSize}px`
   })
 }
