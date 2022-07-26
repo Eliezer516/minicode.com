@@ -11,7 +11,31 @@
 }
 
 nav {
+  position: relative;
   background: #234;
+  overflow: auto;
+}
+
+.nav-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media screen and (max-width: 570px) {
+  .nav-content {
+    width: 120%;
+    justify-content: start;
+  }
+}
+
+@media screen and (max-width: 481px) {
+  .nav-content {
+    width: 130%;
+  }
+  nav .lbl-button span {
+    display: none;
+  }
 }
 
 .CodeMirror {
@@ -68,6 +92,9 @@ input[type="radio"] {
   justify-content: center;
   align-items: center;
 }
+.lbl-button img {
+  margin-left: 0;
+}
 .lbl-button span {
   margin-right: 5px;
 }
@@ -77,19 +104,6 @@ fieldset {
   justify-content: start;
   align-items: center;
   gap: 5px;
-}
-
-.menu {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-@media screen and (max-width: 960px) {
-  .menu {
-    display: initial;
-  }
 }
 
 input::-webkit-outer-spin-button,

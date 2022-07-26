@@ -15,11 +15,21 @@ import 'codemirror/addon/edit/closetag.js'
 import 'codemirror/addon/scroll/simplescrollbars.js'
 import 'codemirror/addon/scroll/simplescrollbars.css'
 
+// EMMET
+
+import emmet from '@emmetio/codemirror-plugin'
+emmet(CodeMirror);
+
 const editorOptions = {
   lineNumbers: true,
   autoCloseBrackets: true,
   autoCloseTags: true,
   scrollbarStyle: 'simple',
+  extraKeys: {
+      'Tab': 'emmetExpandAbbreviation',
+      'Esc': 'emmetResetAbbreviation',
+      'Enter': 'emmetInsertLineBreak'
+  }
 }
 
 const htmleditor = CodeMirror(document.getElementById('htmleditor'), {
