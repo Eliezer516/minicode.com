@@ -3,10 +3,47 @@ import { $ } from './lib/$.js'
 import './fontsize.js'
 import './theme.js'
 
+if(window.localStorage.getItem('editorValue')) {
+  let { html, css, js } = JSON.parse(window.localStorage.getItem('editorValue'))
+  
+  htmleditor.setOption('value', html)
+  csseditor.setOption('value', css)
+  jseditor.setOption('value', js)
+  
+  let storageHtml = `
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Document</title>
+      <style>
+        ${css}
+      </style>
+    </head>
+    <body>
+      ${html}
+      <script>
+        ${js}
+      </script>
+    </body>
+    </html>
+  `
+  updatePreview(storageHtml)
+}
+
 function createHTML () {
-  const html = htmleditor.getValue()
-  const css = csseditor.getValue()
-  const js = jseditor.getValue()
+  let html = htmleditor.getValue()
+  let css = csseditor.getValue()
+  let js = jseditor.getValue()
+  
+  let editorValue = {
+    html,
+    css,
+    js
+  }
+  
+  window.localStorage.setItem('editorValue', JSON.stringify(editorValue))
 
   return `
     <!DOCTYPE html>
@@ -29,9 +66,16 @@ function createHTML () {
   `
 }
 
-function updatePreview () {
-  const html = createHTML()
-  $('iframe').setAttribute('srcdoc', html)
+function updatePreview (storageHtml) {
+  if(storageHtml) {
+    setTimeout(() => {
+      $('iframe').setAttribute('srcdoc', storageHtml)
+    }, 500)
+  }
+  setTimeout(() => {
+    const html = createHTML()
+    $('iframe').setAttribute('srcdoc', html)
+  }, 500)
 }
 
 htmleditor.on('change', () => updatePreview())
