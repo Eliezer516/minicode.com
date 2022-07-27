@@ -1,16 +1,22 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@emmetio/codemirror-plugin': ^1.2.4
   codemirror: '5'
   vite: ^3.0.0
 
 dependencies:
+  '@emmetio/codemirror-plugin': 1.2.4
   codemirror: 5.65.6
 
 devDependencies:
   vite: 3.0.2
 
 packages:
+
+  /@emmetio/codemirror-plugin/1.2.4:
+    resolution: {integrity: sha512-wVw2gqI6X+uVWYVRtTVymzTgbo4hEZIcPCNj4xrXw4l/+L3Qa+tAC/yf+Xy9nenRPCqRq0RLqGiQL+Qf/wYE9Q==}
+    dev: false
 
   /codemirror/5.65.6:
     resolution: {integrity: sha512-zNihMSMoDxK9Gqv9oEyDT8oM51rcRrQ+IEo2zyS48gJByBq5Fj8XuNEguMra+MuIOuh6lkpnLUJeL70DoTt6yw==}
