@@ -13,6 +13,6 @@
   },
   "dependencies": {
     "@emmetio/codemirror-plugin": "^1.2.4",
-    "codemirror": "5"
+    "codemirror": "5.65.6"
   }
 }

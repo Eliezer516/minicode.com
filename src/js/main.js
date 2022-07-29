@@ -2,6 +2,11 @@ import { htmleditor, csseditor, jseditor } from './editors.js'
 import { $ } from './lib/$.js'
 import './fontsize.js'
 import './theme.js'
+import './lblbutons.js'
+
+$("#wordwrap").addEventListener("change", (e) => {
+  console.log(e)
+})
 
 if(window.localStorage.getItem('editorValue')) {
   let { html, css, js } = JSON.parse(window.localStorage.getItem('editorValue'))

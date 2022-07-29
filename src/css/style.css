@@ -3,6 +3,12 @@
   src:  url('./CascadiaCode.ttf') format('truetype')
 }
 
+.CodeMirror-foldgutter-open,
+.CodeMirror-foldgutter-folded {
+  cursor: pointer;
+  color: red;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -25,13 +31,12 @@ nav {
 @media screen and (max-width: 570px) {
   .nav-content {
     width: 120%;
-    justify-content: start;
   }
 }
 
 @media screen and (max-width: 481px) {
   .nav-content {
-    width: 130%;
+    width: 110%;
   }
   nav .lbl-button span {
     display: none;
@@ -92,7 +97,7 @@ input[type="radio"] {
   justify-content: center;
   align-items: center;
 }
-.lbl-button img {
+.tabs>label img {
   margin-left: 0;
 }
 .lbl-button span {
