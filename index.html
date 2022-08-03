@@ -18,7 +18,7 @@
             >
             <label class="lbl-button button" for="radio2"><span>Css</span><img src="src/icons/cssico.svg" alt="Css icon" /></label>
             <label class="lbl-button button" for="radio3"><span>Js</span><img src="src/icons/jsico.svg" alt="javascript icon" /></label>
-            <label class="lbl-button button" for="radio4"
+            <label class="lbl-button button" id="previewBtn" for="radio4"
               ><span>Preview</span><img src="src/icons/preview.svg" alt="Preview icon" /></label
             >          
           </div>
@@ -206,15 +206,15 @@
             </fieldset>
             <h3>Word Wrap</h3>
             <fieldset>
-              <label>
-                <input type="checkbox" id="wordwrap">
-                <span class="checkable">Check me out (;</span>
-              </label>
+              <select id="wordwrap">
+                <option value="on">ON</option>
+                <option value="off">OFF</option>
+              </select>
             </fieldset>
           </footer>
         </article>
       </div>
     </div>
-    <script type="module" src="src/js/main.js"></script>
+    <script type="module" src="src/js/main.js" async></script>
   </body>
 </html>

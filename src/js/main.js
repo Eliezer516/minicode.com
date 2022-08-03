@@ -2,20 +2,15 @@ import { htmleditor, csseditor, jseditor } from './editors.js'
 import { $ } from './lib/$.js'
 import './fontsize.js'
 import './theme.js'
+import './wordwrap.js'
 import './lblbutons.js'
 
-$("#wordwrap").addEventListener("change", (e) => {
-  console.log(e)
-})
-
-if(window.localStorage.getItem('editorValue')) {
-  let { html, css, js } = JSON.parse(window.localStorage.getItem('editorValue'))
-  
+if (window.localStorage.getItem('editorValue')) {
+  const { html, css, js } = JSON.parse(window.localStorage.getItem('editorValue'))  
   htmleditor.setOption('value', html)
   csseditor.setOption('value', css)
   jseditor.setOption('value', js)
-  
-  let storageHtml = `
+  const storageHtml = `
     <!DOCTYPE html>
     <html lang="es">
     <head>
@@ -38,17 +33,9 @@ if(window.localStorage.getItem('editorValue')) {
 }
 
 function createHTML () {
-  let html = htmleditor.getValue()
-  let css = csseditor.getValue()
-  let js = jseditor.getValue()
-  
-  let editorValue = {
-    html,
-    css,
-    js
-  }
-  
-  window.localStorage.setItem('editorValue', JSON.stringify(editorValue))
+  const html = htmleditor.getValue()
+  const css = csseditor.getValue()
+  const js = jseditor.getValue()
 
   return `
     <!DOCTYPE html>
@@ -63,7 +50,7 @@ function createHTML () {
     </head>
     <body>
       ${html}
-      <script>
+      <script type="mudule">
         ${js}
       </script>
     </body>
@@ -72,17 +59,31 @@ function createHTML () {
 }
 
 function updatePreview (storageHtml) {
-  if(storageHtml) {
-    setTimeout(() => {
-      $('iframe').setAttribute('srcdoc', storageHtml)
-    }, 500)
+  if (storageHtml) {
+    $('iframe').setAttribute('srcdoc', storageHtml)
   }
-  setTimeout(() => {
-    const html = createHTML()
-    $('iframe').setAttribute('srcdoc', html)
-  }, 500)
+
+  const html = createHTML()
+  $('iframe').setAttribute('srcdoc', '')
+  $('iframe').setAttribute('srcdoc', html)
 }
 
-htmleditor.on('change', () => updatePreview())
-csseditor.on('change', () => updatePreview())
-jseditor.on('change', () => updatePreview())
+function setEitorValueInLocalStorage () {
+  const html = htmleditor.getValue()
+  const css = csseditor.getValue()
+  const js = jseditor.getValue()
+  const editorValue = {
+    html,
+    css,
+    js
+  }
+  window.localStorage.setItem('editorValue', JSON.stringify(editorValue))
+}
+
+$('#previewBtn').onclick = () => {
+  updatePreview()
+}
+
+htmleditor.on('change', () => setEitorValueInLocalStorage())
+csseditor.on('change', () => setEitorValueInLocalStorage())
+jseditor.on('change', () => setEitorValueInLocalStorage())
