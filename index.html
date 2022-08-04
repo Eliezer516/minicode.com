@@ -13,12 +13,12 @@
       <nav class="demo">
         <div class="nav-content">
           <div class="tabs">
-            <label class="lbl-button button" for="radio1"
+            <label class="lbl-button button active" for="radio1"
               ><span>Html</span><img src="src/icons/htmlico.svg" alt="Html icon" /></label
             >
             <label class="lbl-button button" for="radio2"><span>Css</span><img src="src/icons/cssico.svg" alt="Css icon" /></label>
             <label class="lbl-button button" for="radio3"><span>Js</span><img src="src/icons/jsico.svg" alt="javascript icon" /></label>
-            <label class="lbl-button button" for="radio4"
+            <label class="lbl-button button" id="previewBtn" for="radio4"
               ><span>Preview</span><img src="src/icons/preview.svg" alt="Preview icon" /></label
             >          
           </div>
@@ -204,10 +204,17 @@
                 <option value="zenburn">Zenburn</option>
               </select>
             </fieldset>
+            <h3>Word Wrap</h3>
+            <fieldset>
+              <select id="wordwrap">
+                <option value="on">ON</option>
+                <option value="off">OFF</option>
+              </select>
+            </fieldset>
           </footer>
         </article>
       </div>
     </div>
-    <script type="module" src="src/js/main.js"></script>
+    <script type="module" src="src/js/main.js" async></script>
   </body>
 </html>

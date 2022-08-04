@@ -2,48 +2,14 @@ import { htmleditor, csseditor, jseditor } from './editors.js'
 import { $ } from './lib/$.js'
 import './fontsize.js'
 import './theme.js'
-
-if(window.localStorage.getItem('editorValue')) {
-  let { html, css, js } = JSON.parse(window.localStorage.getItem('editorValue'))
-  
-  htmleditor.setOption('value', html)
-  csseditor.setOption('value', css)
-  jseditor.setOption('value', js)
-  
-  let storageHtml = `
-    <!DOCTYPE html>
-    <html lang="es">
-    <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Document</title>
-      <style>
-        ${css}
-      </style>
-    </head>
-    <body>
-      ${html}
-      <script>
-        ${js}
-      </script>
-    </body>
-    </html>
-  `
-  updatePreview(storageHtml)
-}
+import './wordwrap.js'
+import './lblbutons.js'
+import './localstorage.js'
 
 function createHTML () {
-  let html = htmleditor.getValue()
-  let css = csseditor.getValue()
-  let js = jseditor.getValue()
-  
-  let editorValue = {
-    html,
-    css,
-    js
-  }
-  
-  window.localStorage.setItem('editorValue', JSON.stringify(editorValue))
+  const html = htmleditor.getValue()
+  const css = csseditor.getValue()
+  const js = jseditor.getValue()
 
   return `
     <!DOCTYPE html>
@@ -58,7 +24,7 @@ function createHTML () {
     </head>
     <body>
       ${html}
-      <script>
+      <script type="mudule">
         ${js}
       </script>
     </body>
@@ -66,18 +32,15 @@ function createHTML () {
   `
 }
 
-function updatePreview (storageHtml) {
-  if(storageHtml) {
-    setTimeout(() => {
-      $('iframe').setAttribute('srcdoc', storageHtml)
-    }, 500)
+export function updatePreview (storageHtml) {
+  if (storageHtml) {
+    $('iframe').setAttribute('srcdoc', storageHtml)
   }
-  setTimeout(() => {
-    const html = createHTML()
-    $('iframe').setAttribute('srcdoc', html)
-  }, 500)
+
+  const html = createHTML()
+  $('iframe').setAttribute('srcdoc', html)
 }
 
-htmleditor.on('change', () => updatePreview())
-csseditor.on('change', () => updatePreview())
-jseditor.on('change', () => updatePreview())
+$('#previewBtn').onclick = () => {
+  updatePreview()
+}
