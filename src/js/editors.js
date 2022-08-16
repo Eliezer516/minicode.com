@@ -28,9 +28,9 @@ import 'codemirror/addon/hint/javascript-hint.js'
 
 // EMMET
 import emmet from '@emmetio/codemirror-plugin'
-
 emmet(CodeMirror)
 
+// Global options for all editors
 const editorOptions = {
   lineNumbers: true,
   autoCloseBrackets: true,
@@ -41,33 +41,40 @@ const editorOptions = {
   foldGutter: true,
   gutters: ['CodeMirror-linenumbers', 'CodeMirror-foldgutter'],
   extraKeys: {
-    'Tab': 'emmetExpandAbbreviation',
-    'Esc': 'emmetResetAbbreviation',
-    'Enter': 'emmetInsertLineBreak',
     'Ctrl-M': 'toggleComment',
-    'Ctrl-Space': 'autocomplete'
+    'Ctrl-Space': 'autocomplete',
   },
   emmet: {
     preview: true,
     autoRenameTags: true,
     markTagPairs: true,
-    previewOpenTag: true
   }
 }
 
 const htmleditor = CodeMirror(document.getElementById('htmleditor'), {
   mode: 'htmlmixed',
-  ...editorOptions
+  ...editorOptions,
+  extraKeys: {
+    'Tab': 'emmetExpandAbbreviation',
+    'Esc': 'emmetResetAbbreviation',
+    'Enter': 'emmetInsertLineBreak',
+    'Ctrl-Space': 'emmetCaptureAbbreviation',
+  },
 })
 
 const csseditor = CodeMirror(document.getElementById('csseditor'), {
   mode: 'css',
-  ...editorOptions
+  ...editorOptions,
+  extraKeys: {
+    'Tab': 'emmetExpandAbbreviation',
+    'Esc': 'emmetResetAbbreviation',
+    'Enter': 'emmetInsertLineBreak',
+  },
 })
 
 const jseditor = CodeMirror(document.getElementById('javascripteditor'), {
   mode: 'javascript',
-  ...editorOptions
+  ...editorOptions,
 })
 
 htmleditor.setSize('100%', '100%')

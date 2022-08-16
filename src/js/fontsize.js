@@ -12,6 +12,7 @@ function increaseFontSize () {
   editors.forEach((editor) => {
     editor.style.fontSize = `${currentFontSize}px`
   })
+  window.localStorage.setItem('fontSize', currentFontSize)
   $('#custom-fontsize').value = currentFontSize
 }
 
@@ -20,6 +21,7 @@ function decreaseFontSize () {
   editors.forEach((editor) => {
     editor.style.fontSize = `${currentFontSize}px`
   })
+  window.localStorage.setItem('fontSize', currentFontSize)
   $('#custom-fontsize').value = currentFontSize
 }
 
@@ -32,6 +34,7 @@ function customFontSize () {
   editors.forEach((editor) => {
     editor.style.fontSize = `${currentFontSize}px`
   })
+  window.localStorage.setItem('fontSize', currentFontSize)
 }
 
 function resetFontSize () {

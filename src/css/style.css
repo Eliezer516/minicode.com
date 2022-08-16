@@ -38,7 +38,7 @@ nav {
 
 @media screen and (max-width: 481px) {
   .nav-content {
-    width: 110%;
+    width: 140%;
   }
   nav .lbl-button span {
     display: none;
@@ -96,7 +96,7 @@ input[type="radio"] {
   opacity: 1;
 }
 
-.lbl-button {
+.lbl-button, .lbl-right-button {
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -150,11 +150,8 @@ input[type=number] {
     content: '⋮>';
 }
 
-/** Inline abbreviation preview */
-
 .emmet-abbreviation-preview {
     position: absolute;
-    background: #fff;
     box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.3);
     z-index: 2;
     border-radius: 3px;
@@ -171,6 +168,9 @@ input[type=number] {
 .emmet-abbreviation-preview:not(.has-error) .emmet-abbreviation-preview-error {
     display: none;
 }
+.emmet-abbreviation-preview.has-error {
+  display: none;
+}
 
 .emmet-abbreviation-preview.has-error .CodeMirror {
     display: none;
@@ -185,6 +185,7 @@ input[type=number] {
 }
 
 /** Input panel fow Wrap With Abbreviation */
+
 
 .emmet-panel {
     position: absolute;
@@ -297,4 +298,22 @@ input[type=number] {
         transform: translateY(-100%);
         opacity: 0;
     }
+}
+
+#js-run {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  width: 40px;
+  height: 40px;
+  border-radius: 50px;
+}
+
+#js-run img {
+  width: 40px;
+  height: 40px;
 }

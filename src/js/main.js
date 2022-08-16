@@ -24,7 +24,7 @@ function createHTML () {
     </head>
     <body>
       ${html}
-      <script type="mudule">
+      <script>
         ${js}
       </script>
     </body>

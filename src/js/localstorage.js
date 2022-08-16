@@ -1,6 +1,6 @@
 import { htmleditor, csseditor, jseditor } from './editors.js'
 import { updatePreview } from './main.js'
-import { $ } from './lib/$.js'
+import { $, $$ } from './lib/$.js'
 
 // EDITOR
 
@@ -76,3 +76,11 @@ if (window.localStorage.getItem('wordwrap') === 'on') {
 $('#wordwrap').addEventListener('change', (e) => {
   window.localStorage.setItem('wordwrap', e.target.value)
 })
+
+// FONTSIZE
+if (window.localStorage.getItem('fontSize')) {
+  $$('.CodeMirror').forEach((editor) => {
+    editor.style.fontSize = `${window.localStorage.getItem('fontSize')}px`
+  })
+  $('#custom-fontsize').value = window.localStorage.getItem('fontSize')
+}
